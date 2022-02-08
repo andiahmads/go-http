@@ -1,0 +1,18 @@
+<html>
+
+    <head>
+        <title>
+            {{.Title}}
+        </title>
+    </head>
+
+    <body>
+    {{range $index, $element := .Hobbies}} 
+        <h1>{{$index}} - {{$element}}</h1>
+    {{else}}
+        <h1>anda nolep</h1>    
+    {{end}}  
+
+    </body>
+
+</html>
