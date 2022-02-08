@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
-	"strings"
 	"testing"
 )
 
@@ -27,19 +26,19 @@ func TestQueryParamter(t *testing.T) {
 	fmt.Println(bodyToString)
 }
 
-func MultipleParamterWithMap(writer http.ResponseWriter, request *http.Request) {
-	query := request.URL.Query()
-	names := query["names"]
-	fmt.Fprintf(writer, strings.Join(names, ","))
-}
+// func MultipleParamterWithMap(writer http.ResponseWriter, request *http.Request) {
+// 	query := request.URL.Query()
+// 	names := query["names"]
+// 	fmt.Fprintf(writer, strings.Join(names, ","))
+// }
 
-func TestMultipleQueryParamterWithMap(t *testing.T) {
-	request := httptest.NewRequest("GET", "http://localhost:8080/hello?names=andi&names=joni", nil)
-	recorder := httptest.NewRecorder()
+// func TestMultipleQueryParamterWithMap(t *testing.T) {
+// 	request := httptest.NewRequest("GET", "http://localhost:8080/hello?names=andi&names=joni", nil)
+// 	recorder := httptest.NewRecorder()
 
-	MultipleParamterWithMap(recorder, request)
-	response := recorder.Result()
-	body, _ := ioutil.ReadAll(response.Body)
-	bodyToString := string(body)
-	fmt.Println(bodyToString)
-}
+// 	MultipleParamterWithMap(recorder, request)
+// 	response := recorder.Result()
+// 	body, _ := ioutil.ReadAll(response.Body)
+// 	bodyToString := string(body)
+// 	fmt.Println(bodyToString)
+// }
